@@ -23,9 +23,7 @@
 	    	    grid.find(".command-run1").on("click", function(e)
 	    	    {
 	    	    	var taskid=$(this).data("row-id");
-	    	    	var total=$(this).data("total");
 	    	    	var itemlist=$(this).data("itemlist");
-	    	    	$("#total").val(total);
 	    	    	$("#itemlist").val(itemlist);
 	    	    	$("#dept").show();
 	    	    	$("#btn").click(function(){

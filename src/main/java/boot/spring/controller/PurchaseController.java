@@ -101,14 +101,14 @@ public class PurchaseController {
 	
 	@RequestMapping(value="startpurchase",method=RequestMethod.POST)
 	@ResponseBody
-	MSG startpurchase(@RequestParam("itemlist")String itemlist,@RequestParam("total")BigDecimal total,HttpSession session){
+	MSG startpurchase(@RequestParam("itemlist")String itemlist,HttpSession session){
 		String userid=(String) session.getAttribute("username");
 		Map<String,Object> variables=new HashMap<String, Object>();
 		variables.put("starter", userid);
 		PurchaseApply purchase=new PurchaseApply();
 		purchase.setApplyer(userid);
 		purchase.setItemlist(itemlist);
-		purchase.setTotal(total);
+		purchase.setTotal(new BigDecimal(0));
 		purchase.setApplytime(new Date());
 		ProcessInstance ins=purchaseservice.startWorkflow(purchase, userid, variables);
 		System.out.println("流程id"+ins.getId()+"已启动");
@@ -264,14 +264,13 @@ public class PurchaseController {
 		String userid=(String) session.getAttribute("username");
 		if(updateapply.equals("true")){
 			String itemlist=req.getParameter("itemlist");
-			String total=req.getParameter("total");
 			Task task=taskservice.createTaskQuery().taskId(taskid).singleResult();
 			String instanceid=task.getProcessInstanceId();
 			ProcessInstance ins=runservice.createProcessInstanceQuery().processInstanceId(instanceid).singleResult();
 			String businesskey=ins.getBusinessKey();
 			PurchaseApply p=purchaseservice.getPurchase(Integer.parseInt(businesskey));
 			p.setItemlist(itemlist);
-			p.setTotal(new BigDecimal(Integer.parseInt(total)));
+			p.setTotal(new BigDecimal(1));
 			purchaseservice.updatePurchase(p);
 		}
 		Map<String,Object> variables=new HashMap<String,Object>();
