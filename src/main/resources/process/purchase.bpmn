@@ -62,7 +62,7 @@
     <sequenceFlow id="flow20" name="进入付费子流程" sourceRef="exclusivegateway1" targetRef="pay">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${purchaseauditi=='true'}]]></conditionExpression>
     </sequenceFlow>
-    <userTask activiti:assignee="${starter}" activiti:exclusive="true" id="receiveitem" name="收货确认"/>
+    <userTask activiti:assignee="${starter}" activiti:exclusive="true" id="receiveitem" name="合法数据确认"/>
     <sequenceFlow id="flow21" sourceRef="pay" targetRef="receiveitem"/>
     <endEvent id="endevent3" name="End"/>
     <sequenceFlow id="flow22" sourceRef="receiveitem" targetRef="endevent3"/>
