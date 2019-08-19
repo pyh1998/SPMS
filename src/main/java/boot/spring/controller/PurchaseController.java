@@ -177,15 +177,15 @@ public class PurchaseController {
 		for(User_role ur:userroles)
 		{
 			Role r=ur.getRole();
-			if(r.getRolename().equals("采购经理")){
+			if(r.getRolename().equals("业务员")){
 				flag=true;
 			}
 		}
 		if(flag){//有权限
 			int firstrow=(current-1)*rowCount;
 			List<PurchaseTask> results=new ArrayList<PurchaseTask>();
-			List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup("采购经理").listPage(firstrow, rowCount);
-			long totaltask=taskservice.createTaskQuery().taskCandidateGroup("采购经理").count();
+			List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup("业务员").listPage(firstrow, rowCount);
+			long totaltask=taskservice.createTaskQuery().taskCandidateGroup("业务员").count();
 			for(Task task:tasks){
 				PurchaseTask vo=new PurchaseTask();
 				String instanceid=task.getProcessInstanceId();
@@ -326,15 +326,15 @@ public class PurchaseController {
 		for(User_role ur:userroles)
 		{
 			Role r=ur.getRole();
-			if(r.getRolename().equals("财务管理员")){
+			if(r.getRolename().equals("班长")){
 				flag=true;
 			}
 		}
 		if(flag){//有权限
 			int firstrow=(current-1)*rowCount;
 			List<PurchaseTask> results=new ArrayList<PurchaseTask>();
-			List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup("财务管理员").listPage(firstrow, rowCount);
-			long totaltask=taskservice.createTaskQuery().taskCandidateGroup("财务管理员").count();
+			List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup("班长").listPage(firstrow, rowCount);
+			long totaltask=taskservice.createTaskQuery().taskCandidateGroup("班长").count();
 			for(Task task:tasks){
 				PurchaseTask vo=new PurchaseTask();
 				String instanceid=task.getProcessInstanceId();
@@ -393,15 +393,15 @@ public class PurchaseController {
 		for(User_role ur:userroles)
 		{
 			Role r=ur.getRole();
-			if(r.getRolename().equals("总经理")){
+			if(r.getRolename().equals("主任")){
 				flag=true;
 			}
 		}
 		if(flag){//有权限
 			int firstrow=(current-1)*rowCount;
 			List<PurchaseTask> results=new ArrayList<PurchaseTask>();
-			List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup("总经理").listPage(firstrow, rowCount);
-			long totaltask=taskservice.createTaskQuery().taskCandidateGroup("总经理").count();
+			List<Task> tasks=taskservice.createTaskQuery().taskCandidateGroup("主任").listPage(firstrow, rowCount);
+			long totaltask=taskservice.createTaskQuery().taskCandidateGroup("主任").count();
 			for(Task task:tasks){
 				PurchaseTask vo=new PurchaseTask();
 				String instanceid=task.getProcessInstanceId();

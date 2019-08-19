@@ -2,7 +2,7 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1566177615123" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
   <process id="purchase" isClosed="false" isExecutable="true" name="purchaseprocess" processType="None">
     <startEvent activiti:initiator="${starter}" id="startevent1" name="Start"/>
-    <userTask activiti:candidateGroups="采购经理" activiti:exclusive="true" id="purchaseAuditi" name="业务员审批"/>
+    <userTask activiti:candidateGroups="业务员" activiti:exclusive="true" id="purchaseAuditi" name="业务员审批"/>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="purchaseAuditi"/>
     <exclusiveGateway gatewayDirection="Unspecified" id="exclusivegateway1" name="Exclusive Gateway"/>
     <sequenceFlow id="flow2" sourceRef="purchaseAuditi" targetRef="exclusivegateway1"/>
@@ -21,7 +21,7 @@
     </sequenceFlow>
     <subProcess activiti:exclusive="true" id="pay" name="报文审批子流程" triggeredByEvent="false">
       <startEvent id="startevent2" name="Start"/>
-      <userTask activiti:candidateGroups="财务管理员" activiti:exclusive="true" id="financeaudit" name="班长审批"/>
+      <userTask activiti:candidateGroups="班长" activiti:exclusive="true" id="financeaudit" name="班长审批"/>
       <sequenceFlow id="flow9" sourceRef="startevent2" targetRef="financeaudit"/>
       <exclusiveGateway gatewayDirection="Unspecified" id="exclusivegateway3" name="Exclusive Gateway"/>
       <sequenceFlow id="flow10" sourceRef="financeaudit" targetRef="exclusivegateway3"/>
@@ -29,7 +29,7 @@
       <sequenceFlow id="flow11" name="通过" sourceRef="exclusivegateway3" targetRef="exclusivegateway4">
         <conditionExpression xsi:type="tFormalExpression"><![CDATA[${finance=='true'}]]></conditionExpression>
       </sequenceFlow>
-      <userTask activiti:candidateGroups="总经理" activiti:exclusive="true" id="manageraudit" name="主任审批"/>
+      <userTask activiti:candidateGroups="主任" activiti:exclusive="true" id="manageraudit" name="主任审批"/>
       <sequenceFlow id="flow12" name="数据修改" sourceRef="exclusivegateway4" targetRef="manageraudit">
         <conditionExpression xsi:type="tFormalExpression"><![CDATA[${money==1}]]></conditionExpression>
       </sequenceFlow>
