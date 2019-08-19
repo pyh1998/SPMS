@@ -8,7 +8,7 @@
 		<ol class="breadcrumb pull-left">
 			<li><a href="index">首页</a></li>
 			<li><a href="#">我的待办任务</a></li>
-			<li><a href="#">采购待办</a></li>
+			<li><a href="#">报文审批待办</a></li>
 			<li><a href="#">调整申请</a></li>
 		</ol>
 	</div>
@@ -36,7 +36,7 @@
 							                <th data-column-id="applyer" data-identifier="true" data-type="numeric">申请人</th>
 							                <th data-column-id="applytime" data-formatter="applytime">申请时间</th>
 							                <th data-column-id="itemlist">申请内容</th>
-							                <th data-column-id="total">总金额</th>
+							                <th data-column-id="total">是否修改</th>
 							                <th data-column-id="taskid">任务ID</th>
 							                <th data-column-id="taskname">任务名称</th>
 							                <th data-column-id="processinstanceid" >流程实例ID</th>
@@ -71,7 +71,11 @@
 							</textarea>
 						</div>
 						<div class="form-group has-feedback">
-							<label>总金额(元)</label> <input id="total" class="form-control" name="total" placeholder="总金额"/>
+							<label>数据是否修改</label>
+							<select id="total" name="total">
+								<option value="1">是</option>
+								<option value="0">否</option>
+							</select>
 						</div>
 						<div class="form-group">
 						                <label>是否重新申请</label>
