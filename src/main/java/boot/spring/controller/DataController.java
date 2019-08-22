@@ -1,9 +1,10 @@
 package boot.spring.controller;
 
+import boot.spring.po.TVShipmain;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +13,7 @@ import java.util.Random;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import  boot.spring.service.DataService;
 
 //@Controller
 @RestController
@@ -95,12 +96,23 @@ public class DataController {
 
 
 
-    private static String PREFIX = "/CoalMS/train/";
+
+    @Autowired
+    private DataService dataService;
+
+    @RequestMapping(value="/update",method=RequestMethod.POST)
+    public String update(TVShipmain shipmain)
+    {
+        int result = dataService.update(shipmain);
+        if (result >= 1) {
+            return "修改成功";
+        } else {
+            return "修改失败";
+        }
 
 
-
-    @RequestMapping(value="/test")
-    public String test() {
-        return PREFIX + "train1.html";
     }
+
+
+
 }
