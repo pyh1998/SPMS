@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import boot.spring.po.*;
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
@@ -35,10 +36,6 @@ import boot.spring.pagemodel.HistoryProcess;
 import boot.spring.pagemodel.MSG;
 import boot.spring.pagemodel.PurchaseTask;
 import boot.spring.pagemodel.RunningProcess;
-import boot.spring.po.PurchaseApply;
-import boot.spring.po.Role;
-import boot.spring.po.User;
-import boot.spring.po.User_role;
 import boot.spring.service.PurchaseService;
 import boot.spring.service.SystemService;
 import io.swagger.annotations.Api;
@@ -58,7 +55,24 @@ public class PurchaseController {
 	SystemService systemservice;
 	@Autowired
 	PurchaseService purchaseservice;
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	@RequestMapping(value="/purchase",method=RequestMethod.GET)
 	String purchase(){
 		return "purchase/purchaseapply";

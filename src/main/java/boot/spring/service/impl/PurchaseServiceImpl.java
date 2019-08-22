@@ -2,6 +2,8 @@ package boot.spring.service.impl;
 
 import java.util.Map;
 
+import boot.spring.mapper.DataMapper;
+import boot.spring.po.TVShipmain;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -27,6 +29,13 @@ public class PurchaseServiceImpl implements PurchaseService{
 	RuntimeService runtimeservice;
 	@Autowired
 	TaskService taskservice;
+
+	@Autowired
+	public DataMapper datamapper;
+
+	public int update(TVShipmain shipmain){
+		return datamapper.update(shipmain);
+	}
 	
 	public ProcessInstance startWorkflow(PurchaseApply apply, String userid,Map<String, Object> variables) {
 		purchasemapper.save(apply);

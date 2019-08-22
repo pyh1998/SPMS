@@ -1,6 +1,7 @@
 package boot.spring.controller;
 
 import boot.spring.po.TVShipmain;
+import boot.spring.service.PurchaseService;
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
-import  boot.spring.service.DataService;
+
 
 //@Controller
 @RestController
@@ -95,12 +96,12 @@ public class DataController {
 
 
 @Autowired
-DataService DataService;
+    PurchaseService purchaseService;
 
     @RequestMapping(value="/update123",method=RequestMethod.POST)
     public String update(TVShipmain shipmain)
     {
-        int result = DataService.update(shipmain);
+        int result = purchaseService.update(shipmain);
         if (result >= 1) {
             return "修改成功";
         } else {
