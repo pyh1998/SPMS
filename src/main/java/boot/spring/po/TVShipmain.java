@@ -8,7 +8,6 @@ import java.io.Serializable;
 
 public class TVShipmain{
 
-    private static final long serialVersionUID = 1L;
 
     /**
      * 公司
