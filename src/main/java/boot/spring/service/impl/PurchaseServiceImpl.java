@@ -36,6 +36,10 @@ public class PurchaseServiceImpl implements PurchaseService{
 	public int update(TVShipmain shipmain){
 		return datamapper.update(shipmain);
 	}
+
+	public int insert(TVShipmain shipmain){
+		return datamapper.insert(shipmain);
+	}
 	
 	public ProcessInstance startWorkflow(PurchaseApply apply, String userid,Map<String, Object> variables) {
 		purchasemapper.save(apply);

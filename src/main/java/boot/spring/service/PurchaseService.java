@@ -12,4 +12,6 @@ public interface PurchaseService {
 	PurchaseApply getPurchase(int id);
 	void updatePurchase(PurchaseApply a);
 		public int update(TVShipmain shipmain);
+		public int insert(TVShipmain shipmain);
+
 }

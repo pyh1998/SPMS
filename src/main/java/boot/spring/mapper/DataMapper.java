@@ -8,4 +8,5 @@ public interface DataMapper {
 
     int update(TVShipmain shipmain);
 
+    int insert(TVShipmain shipmain);
 }

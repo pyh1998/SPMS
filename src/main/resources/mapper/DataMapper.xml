@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boot.spring.mapper.DataMapper">
+
+    <update id="update" parameterType="boot.spring.po.PurchaseApply">
+        update purchase
+        <set>
+
+                applyer = "WANG"
+
+        </set>
+        where id = 41
+    </update>
+
+    <insert id="insert" parameterType="boot.spring.po.TVShipmain">
+        insert into T_V_SHIPMAIN()
+         values
+          (#{company},#{fshipyearnumvcr})
+    </insert>
+</mapper>
