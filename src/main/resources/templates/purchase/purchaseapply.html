@@ -1,4 +1,5 @@
 <!--Start Breadcrumb-->
+<script src="js/purchaseapply.js"></script>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
 	<a href="#" class="show-sidebar">
@@ -29,11 +30,451 @@
 				</div>
 				<div class="box-content">
 					<form role="form" action="startleave" method="post">
-						<div class="form-group has-feedback">
-							<label class="control-label">数据</label>
-							<textarea id="itemlist" rows="6" class="form-control" name="itemlist">
-							</textarea>
+						<div class="col-sm-12">
+
+							<!-- ship -->
+
+
+							<!-- form -->
+							<div class="col-sm-9">
+								<div class="form-horizontal">
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="form-group">
+												<label class="col-sm-5 control-label">公司</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="company" name="公司" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">抵达时间</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="farrivetimedtm" name="抵达时间" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group">
+												<label class="col-sm-5 control-label">船舶年序号</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fshipyearnumvcr" name="船舶年序号" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">船舶代码</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fshipcodenum" name="船舶代码" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group">
+												<label class="col-sm-5 control-label">航次</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fshipordernum" name="航次" underline="true"/>                                                </div>
+											</div>
+
+											<div class="hr-line-dashed"></div>
+											<div class="form-group">
+												<label class="col-sm-5 control-label">船舶名称</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fshipname" name="船舶名称" underline="true"/>
+												</div>
+											</div>
+
+											<div class="hr-line-dashed"></div>
+
+										</div>
+									</div>
+								</div>
+
+								<div class="form-horizontal">
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="form-group">
+												<label class="col-sm-5 control-label">泊位代码</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fberthnum" name="泊位代码" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">泊位名称</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fberthname" name="泊位名称" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数吨2</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fsigntonnum2" name="签数吨2" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数吨</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fsigntonnum" name="签数吨" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">装船状态</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fshipstatevcr" name="装船状态" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">统计年月 月份 所属日期</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fcounttimedtm" name="统计年月 月份 所属日期" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">舱数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fcabinnumnum" name="舱数" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11最大承重吨</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fmaxweighnum" name="最大承重吨" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">R吨数1</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="frton1num" name="R吨数1" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BQ吨数1</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fbqton1num" name="BQ吨数1" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">R吨数2</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="frton2num" name="R吨数2" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BQ吨数2</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fbqbton2num" name="BQ吨数2" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BM吨数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fbmtonnum" name="BM吨数" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BJ吨数1</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fbjtonnum1" name="BJ吨数1" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+
+
+										</div>
+										<div class="col-sm-4">
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BJ吨数2</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fbjtonnum2" name="BJ吨数2" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11结果</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="lineresult" name="结果" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11状态</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="linestate" name="状态"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">R吨数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="rton" name="R吨数" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BM吨数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="bmton" name="BM吨数" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BQ吨数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="bqton" name="BQ吨数" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BJ吨数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="bjton" name="BJ吨数" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">最大吨数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="maxton" name="最大吨数" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">最小吨数</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="minton" name="最小吨数" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">R吨偏差率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="rrate" name="R吨偏差率" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BM吨偏差率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="bmrate" name="BM吨偏差率" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BQ吨偏差率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="bqrate" name="BQ吨偏差率" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">BJ吨偏差率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="bjrate" name="BJ吨偏差率" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+										</div>
+										<div class="col-sm-4">
+											<div class="form-group">
+												<label class="col-sm-5 control-label">煤种名称1</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fcoalname1" name="煤种名称1" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">煤种名称2</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fcoalname2" name="煤种名称2" underline="true"/>
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数结果</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="signresult" name="签数结果" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数状态</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="signstate" name="签数状态" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="signrrate" name="签数率" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数BM率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="signbmrate" name="签数BM率" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数BQ率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="signbqrate" name="签数BQ率" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">签数BJ率</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="signbjrate" name="签数BJ率" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11开始时间</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fstarttimedtm" name="" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11停止时间</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fstoptimedtm" name="" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11battle名称</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fbattlename" name="" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11流动名称</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fflowname" name="" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+											<div class="form-group">
+												<label class="col-sm-5 control-label">11船舱数量</label>
+												<div class="col-sm-7">
+													<input autocomplete="off" type="text"  class="form-control" id="fcabinnumnumno" name="" underline="true"/>
+
+												</div>
+											</div>
+											<div class="hr-line-dashed"></div>
+
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- form over -->
 						</div>
+						<button id="collect" type="button" class="btn btn-primary" onclick="openInfoDetail()">采集数据</button>
 						<button id="btn" type="button" class="btn btn-primary">开始申请</button>
 						<button type="reset" class="btn btn-primary">重置</button>
 					</form>
@@ -52,3 +493,4 @@ $(document).ready(function(){
 	});
 });
 </script>
+

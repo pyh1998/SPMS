@@ -7,8 +7,6 @@ import java.io.Serializable;
 
 
 public class TVShipmain{
-
-
     /**
      * 公司
      */
