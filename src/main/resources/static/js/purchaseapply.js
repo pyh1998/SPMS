@@ -60,5 +60,15 @@ function show_detail(data) {
         $("#fcabinnumnumno").val(data.fcabinnumnumno);
 
 }
+function insertdetail(){
 
+    $.ajax({
+
+        url:"/data/insert",//访问的地址
+        type:"get",
+        success:function(data) {
+            console.log(data);
+        }
+    })
+}
 

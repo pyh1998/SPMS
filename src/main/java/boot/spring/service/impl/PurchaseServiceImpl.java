@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import boot.spring.mapper.PurchaseApplyMapper;
 import boot.spring.po.PurchaseApply;
 import boot.spring.service.PurchaseService;
+import java.util.List;
 
 @Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.DEFAULT,timeout=5)
 @Service
@@ -40,8 +41,15 @@ public class PurchaseServiceImpl implements PurchaseService{
 	public int insert(TVShipmain shipmain){
 		return datamapper.insert(shipmain);
 	}
-	
-	public ProcessInstance startWorkflow(PurchaseApply apply, String userid,Map<String, Object> variables) {
+    public List<Map<String, Object>> select(){
+        return datamapper.select();
+    }
+    public int delete(){
+        return datamapper.delete();
+    }
+
+
+    public ProcessInstance startWorkflow(PurchaseApply apply, String userid,Map<String, Object> variables) {
 		purchasemapper.save(apply);
 		String businesskey=String.valueOf(apply.getId());//使用leaveapply表的主键作为businesskey,连接业务数据和流程数据
 		identityservice.setAuthenticatedUserId(userid);

@@ -22,8 +22,12 @@
 
     </select>
     <insert id="insert" parameterType="boot.spring.po.TVShipmain">
-        insert into T_V_SHIPMAIN()
-         values
-          (#{company},#{fshipyearnumvcr})
+       insert into T_V_SHIPMAIN (COMPANY, FSHIPYEARNUMVCR, FSHIPORDERNUM, FSHIPCODENUM, FSHIPNAME, FBERTHNUM, FBERTHNAME, FSIGNTONNUM2, FSIGNTONNUM, FSHIPSTATEVCR, FCABINNUMNUM, FMAXWEIGHNUM, FRTON1NUM, FBQTON1NUM, FRTON2NUM, FBQBTON2NUM, FBMTONNUM, FBJTONNUM1, FBJTONNUM2, LINERESULT, LINESTATE, RTON, BMTON, BQTON, BJTON, MAXTON, MINTON, RRATE, BMRATE, BQRATE, BJRATE, FCOALNAME1, FCOALNAME2, SIGNRESULT, SIGNSTATE, SIGNRRATE, SIGNBMRATE, SIGNBQRATE, SIGNBJRATE, FBATTLENAME, FFLOWNAME, FCABINNUMNUMNO)
+values(#{company},#{fshipyearnumvcr},#{fshipordernum},#{fshipcodenum},#{fshipname},#{fberthnum},#{fberthname},#{fsigntonnum2},#{fsigntonnum},#{fshipstatevcr},#{fcabinnumnum},#{fmaxweighnum},#{frton1num},#{fbqton1num},#{frton2num},#{fbqbton2num},#{fbmtonnum},#{fbjtonnum1},#{fbjtonnum2},#{lineresult},#{linestate},#{rton},#{bmton},#{bqton},#{bjton},#{maxton},#{minton},#{rrate},#{bmrate},#{bqrate},#{bjrate},#{fcoalname1},#{fcoalname2},#{signresult},#{signstate},#{signrrate},#{signbmrate},#{signbqrate},#{signbjrate},#{fbattlename},#{fflowname},#{fcabinnumnumno})
+
     </insert>
+
+    <delete id="delete">
+        delete from T_V_SHIPMAIN
+    </delete>
 </mapper>

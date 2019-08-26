@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -146,8 +148,20 @@ public class DataController {
         }
 
 
+
     }
+    @RequestMapping(value = "/select")
+    public  Object select(){
 
+        System.out.println("bbb");
 
+        List<Map<String, Object>> select =this.purchaseService.select();
+        return select;
+
+    }
+    @RequestMapping(value = "/delete")
+    public  int delete(){
+        return this.purchaseService.delete();
+    }
 
 }
