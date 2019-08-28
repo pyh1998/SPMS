@@ -1,4 +1,5 @@
 <!--Start Breadcrumb-->
+<script src="js/faker.js"></script>
 <script src="js/purchaseapply.js"></script>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
@@ -479,7 +480,7 @@
 						</textarea>
 						</div>
 						<button id="collect" type="button" class="btn btn-primary" onclick="openInfoDetail()">采集数据</button>
-						<button id="btn" type="button" class="btn btn-primary" onclick="insertdetail()">开始申请</button>
+						<button id="btn" type="button" class="btn btn-primary" onclick="insertDetail()">开始申请</button>
 						<button type="reset" class="btn btn-primary">重置</button>
 					</form>
 
@@ -498,5 +499,80 @@
             });
         });
     });
+
+	function openInfoDetail() {
+		faker.locale = "zh_CN";
+		var company =Math.floor(Math.random()*(3+1));
+		switch (company) {
+			case 0:
+				$("#company").val("02");
+				break;
+			case 1:
+				$("#company").val("06");
+				break;
+			case 2:
+				$("#company").val("07");
+				break;
+			case 3:
+				$("#company").val("09");
+				break;
+		}
+        var randomDate = faker.date.past(10, new Date("Sat Sep 20 2018 21:35:02 GMT+0200 (CEST)"));
+		var pastTime = faker.date.past(0.1, randomDate);
+		var countTime =faker.date.past(0.1, randomDate);
+		$("#farrivetimedtm").val(randomDate.getFullYear() + "-" + (randomDate.getMonth()+1) + "-" + randomDate.getDate());
+		 $("#fshipyearnumvcr").val(faker.random.number({min:1000000000,max:9999999999}));
+		$("#fshipcodenum").val(faker.random.number({min:10000,max:99999}));
+		$("#fshipordernum").val(faker.random.number({min:1000,max:9999}));
+		$("#fshipname").val(faker.name.jobTitle());
+		$("#fberthnum").val(faker.random.number({min:100,max:999}));
+		$("#fberthname").val(faker.name.jobTitle());
+		$("#fsigntonnum").val(faker.random.number({min:10000,max:99999}));
+		var signton = $("#fsigntonnum").val();
+		$("#fshipstatevcr").val(faker.random.number({min:1,max:9}));
+		$("#fcounttimedtm").val(countTime.getFullYear() + "-" + (countTime.getMonth()+1) + "-" + countTime.getDate());
+		$("#fcabinnumnum").val(faker.random.number({min:1,max:9}));
+		$("#fmaxweighnum").val(faker.random.number({min:1,max:9,precision:0.001}));
+		$("#frton1num").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#fbqton1num").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#frton2num").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#fbqton2num").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#fbmtonnum").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#fbjtonnum1").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#fbjtonnum2").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		// $("#lineresult").val(data.signbqrate);
+        switch (Math.round(Math.random())){
+            case 0:
+                $("#linestate").val("合格");
+                break;
+            case 1:
+                $("#linestate").val("不合格");
+                break;
+        }
+
+		$("#rton").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#bmton").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#bqton").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#bjton").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#maxton").val(faker.random.number({min:signton - 5000,max:signton - (-5000)}));
+		$("#minton").val(faker.random.number({min:1,max:9}));
+		$("#rrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		$("#bmrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		$("#bqrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		$("#bjrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		$("#fcoalname1").val(faker.name.jobTitle());
+		$("#fcoalname2").val(faker.name.jobTitle());
+		// $("#signresult").val(data.signbqrate);
+		// $("#signstate").val(data.signbqrate);
+		$("#signrrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		$("#signbmrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		$("#signbqrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		$("#signbjrate").val(faker.random.number({min:-100,max:100,precision:0.00001}));
+		// $("#fstarttimedtm").val(faker.random.number({min:signton - 100,max:signton - (-100),precision:0.00001}));
+		// $("#fstoptimedtm").val(data.signbqrate);
+		$("#fbattlename").val(faker.name.jobTitle());
+		$("#fflowname").val(faker.name.jobTitle());
+		$("#fcabinnumnumno").val(faker.random.number({min:1,max:100}));
+	}
 </script>
 

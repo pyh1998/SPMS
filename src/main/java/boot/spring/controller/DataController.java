@@ -136,11 +136,62 @@ public class DataController {
 
 
     @RequestMapping(value="/insert")
-    public String insert(TVShipmain shipmain) throws ParseException {
+    public String insert(@RequestParam("tvShipMain")Map<String,Object> tvShipMain) throws ParseException {
 
-        shipmain = faker();
+        System.out.println(tvShipMain);
+        System.out.println("***************************************");
 
-        int result = purchaseService.insert(shipmain);//函数调用问题
+        TVShipmain tvShipmain= new TVShipmain();
+        tvShipmain.setCompany((String) tvShipMain.get("company"));
+        tvShipmain.setFshipyearnumvcr((String) tvShipMain.get("fshipyearnumvcr"));
+        tvShipmain.setFshipordernum((BigDecimal) tvShipMain.get("fshipordernum"));
+        tvShipmain.setFarrivetimedtm((Date) tvShipMain.get("farrivetimedtm"));
+        tvShipmain.setFshipcodenum((BigDecimal) tvShipMain.get("fshipcodenum"));
+        tvShipmain.setFshipname((String) tvShipMain.get("fshipname"));
+        tvShipmain.setFberthnum((BigDecimal) tvShipMain.get("fberthnum"));
+        tvShipmain.setFberthname((String) tvShipMain.get("fberthname"));
+        tvShipmain.setFsigntonnum2((BigDecimal) tvShipMain.get("fsigntonnum2"));
+        tvShipmain.setFsigntonnum((BigDecimal) tvShipMain.get("fsigntonnum"));
+        tvShipmain.setFshipstatevcr((String) tvShipMain.get("fshipstatevcr"));
+        tvShipmain.setFcounttimedtm((Date) tvShipMain.get("fcounttimedtm"));
+        tvShipmain.setFcabinnumnum((BigDecimal) tvShipMain.get("fcabinnumnum"));
+        tvShipmain.setFmaxweighnum((BigDecimal) tvShipMain.get("fmaxweighnum"));
+        tvShipmain.setFrton1num((BigDecimal) tvShipMain.get("frton1num"));
+        tvShipmain.setFbqton1num((BigDecimal) tvShipMain.get("fbqton1num"));
+        tvShipmain.setFrton2num((BigDecimal) tvShipMain.get("frton2num"));
+        tvShipmain.setFbqbton2num((BigDecimal) tvShipMain.get("fbqbton2num"));
+        tvShipmain.setFbmtonnum((BigDecimal) tvShipMain.get("fbmtonnum"));
+        tvShipmain.setFbjtonnum1((BigDecimal) tvShipMain.get("fbjtonnum1"));
+        tvShipmain.setFbjtonnum2((BigDecimal) tvShipMain.get("fbjtonnum2"));
+        tvShipmain.setLineresult((String) tvShipMain.get("lineresult"));
+        tvShipmain.setLinestate((String) tvShipMain.get("linestate"));
+        tvShipmain.setRton((BigDecimal) tvShipMain.get("rton"));
+        tvShipmain.setBmton((BigDecimal) tvShipMain.get("bmton"));
+        tvShipmain.setBqton((BigDecimal) tvShipMain.get("bqton"));
+        tvShipmain.setBjton((BigDecimal) tvShipMain.get("bjton"));;
+        tvShipmain.setMaxton((BigDecimal) tvShipMain.get("maxton"));
+        tvShipmain.setMinton((BigDecimal) tvShipMain.get("minton"));
+        tvShipmain.setRrate((BigDecimal) tvShipMain.get("rrate"));
+        tvShipmain.setBmrate((BigDecimal) tvShipMain.get("bmrate"));
+        tvShipmain.setBqrate((BigDecimal) tvShipMain.get("bqrate"));
+        tvShipmain.setBjrate((BigDecimal) tvShipMain.get("bjrate"));
+        tvShipmain.setFcoalname1((String) tvShipMain.get("fcoalname1"));
+        tvShipmain.setFcoalname2((String) tvShipMain.get("fcoalname2"));
+        tvShipmain.setSignresult((String) tvShipMain.get("signresult"));
+        tvShipmain.setSignstate((String) tvShipMain.get("signstate"));
+        tvShipmain.setSignrrate((BigDecimal) tvShipMain.get("signrrate"));
+        tvShipmain.setSignbmrate((BigDecimal) tvShipMain.get("signbmrate"));
+        tvShipmain.setSignbqrate((BigDecimal) tvShipMain.get("signbqrate"));
+        tvShipmain.setSignbjrate((BigDecimal) tvShipMain.get("signbjrate"));
+        tvShipmain.setFstarttimedtm((Date) tvShipMain.get("fstarttimedtm"));
+        tvShipmain.setFstoptimedtm((Date) tvShipMain.get("fstoptimedtm"));
+        tvShipmain.setFbattlename((String) tvShipMain.get("fbattlename"));
+        tvShipmain.setFflowname((String) tvShipMain.get("fflowname"));
+        tvShipmain.setFcabinnumnumno((BigDecimal) tvShipMain.get("fcabinnumnumno"));
+
+        System.out.println(tvShipmain);
+
+        int result = purchaseService.insert(tvShipmain);//函数调用问题
         if (result >= 1) {
             return "添加成功";
         } else {

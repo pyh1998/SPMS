@@ -1,17 +1,3 @@
-function openInfoDetail(){
-
-    $.ajax({
-
-        url:"/data/faker",//访问的地址
-        type:"get",
-        success:function(data) {
-            console.log(data.company);
-            show_detail(data);
-
-        }
-        })
-}
-
 function show_detail(data) {
         $("#company").val(data.company);
         $("#farrivetimedtm").val(data.farrivetimedtm);
@@ -60,12 +46,61 @@ function show_detail(data) {
         $("#fcabinnumnumno").val(data.fcabinnumnumno);
 
 }
-function insertdetail(){
-
+function insertDetail(){
+        var TVShipMain = new map();
+        TVShipMain.set("company",$("#company").val());
+        TVShipMain.set("fshipyearnumvcr",$("#FSHIPYEARNUMVCR").val());
+        // TVShipMain[company]=$("#company").val();
+        // TVShipMain[farrivetimedtm]=$("#farrivetimedtm").val();
+        // TVShipMain[fshipyearnumvcr]=$("#FSHIPYEARNUMVCR").val();
+        // TVShipMain[fshipcodenum]=$("#fshipcodenum").val();
+        // TVShipMain[fshipordernum]=$("#fshipordernum").val();
+        // TVShipMain[fshipname]=$("#FSHIPNAME").val();
+        // TVShipMain[fberthnum]=$("#fberthnum").val();
+        // TVShipMain[fberthname]=$("#fberthname").val();
+        // TVShipMain[]=$("#FSIGNTON2").val();
+        // TVShipMain[]=$("#FSIGNTON1").val();
+        // TVShipMain[]=$("#fshipstatevcr").val();
+        // TVShipMain[]=$("#fcounttimedtm").val();
+        // TVShipMain[]=$("#fcabinnumnum").val();
+        // TVShipMain[]=$("#frton1num").val();
+        // TVShipMain[]=$("#fbqton1num").val();
+        // TVShipMain[]=$("#frton2num").val();
+        // TVShipMain[]=$("#fbqbton2num").val();
+        // TVShipMain[]=$("#fbmtonnum").val();
+        // TVShipMain[]=$("#fbjtonnum1").val();
+        // TVShipMain[]=$("#fbjtonnum2").val();
+        // TVShipMain[]=$("#lineresult").val();
+        // TVShipMain[]=$("#linestate").val();
+        // TVShipMain[]=$("#rton").val();
+        // TVShipMain[]=$("#bmton").val();
+        // TVShipMain[]=$("#bqton").val();
+        // TVShipMain[]=$("#bjton").val();
+        // TVShipMain[]=$("#maxton").val();
+        // TVShipMain[]=$("#minton").val();
+        // TVShipMain[]=$("#rrate").val();
+        // TVShipMain[]=$("#bmrate").val();
+        // TVShipMain[]=$("#bqrate").val();
+        // TVShipMain[]=$("#bjrate").val();
+        // TVShipMain[]=$("#fcoalname1").val();
+        // TVShipMain[]=$("#fcoalname2").val();
+        // TVShipMain[]=$("#signresult").val();
+        // TVShipMain[]=$("#signstate").val();
+        // TVShipMain[]=$("#signrrate").val();
+        // TVShipMain[]=$("#signbmrate").val();
+        // TVShipMain[]=$("#signbqrate").val();
+        // TVShipMain[]=$("#signbjrate").val();
+        // TVShipMain[]=$("#fstarttimedtm").val();
+        // TVShipMain[]=$("#fstoptimedtm").val();
+        // TVShipMain[]=$("#fbattlename").val();
+        // TVShipMain[]=$("#fflowname").val();
+        // TVShipMain[]=$("#fcabinnumnumno").val();
+        console.log(TVShipMain);
     $.ajax({
-
         url:"/data/insert",//访问的地址
+            traditional: true,
         type:"get",
+            data:{tvShipMain:TVShipMain},
         success:function(data) {
             console.log(data);
         }

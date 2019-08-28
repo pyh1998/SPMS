@@ -1,51 +1,96 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>登录</title>
-		<meta name="description" content="description"/>
-		<meta name="author" content="Evgeniya"/>
-		<meta name="keyword" content="keywords"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<link href="./plugins/bootstrap/bootstrap.css" rel="stylesheet"/>
-		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet"/>
-		<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'/>
-		<link href="./css/style_v1.css" rel="stylesheet"/>
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
-				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
-		<![endif]-->
-	</head>
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>Effect Login Form Responsive Widget Template :: w3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Effect Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="static/css/fontawesome-all.css" />
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- web-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet" />
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet" />
+	<!-- //web-fonts -->
+</head>
+
 <body>
-<div class="container-fluid">
-	<div id="page-login" class="row">
-		<div class="col-xs-12 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-			<div class="text-right">
-				<a href="register" class="txt-default">Need an account?</a>
-			</div>
-			<div class="box">
-				<div class="box-content">
-					<div class="text-center">
-						<h3 class="page-header">报文审批系统   登录</h3>
-					</div>
-					<form action="loginvalidate" method="post">
-					<div class="form-group">
-						<label class="control-label">Username</label>
-						<input type="text" class="form-control" name="username" />
-					</div>
-					<div class="form-group">
-						<label class="control-label">Password</label>
-						<input type="password" class="form-control" name="password" />
-					</div>
-					<div class="text-center">
-						<button class="btn btn-primary">login</button>
-					</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- bg effect -->
+<div id="bg">
+	<canvas></canvas>
+	<canvas></canvas>
+	<canvas></canvas>
 </div>
+<!-- //bg effect -->
+<!-- title -->
+<h1>欢迎登录报文审批系统</h1>
+<!-- //title -->
+<!-- content -->
+<div class="sub-main-w3">
+	<form action="loginvalidate" method="post">
+		<h2>请登录
+			<i class="fas fa-level-down-alt"></i>
+		</h2>
+		<div class="form-style-agile">
+			<label>
+				<i class="fas fa-user"></i>
+				用户名
+			</label>
+			<input placeholder="Username" name="username" type="text" required="" />
+		</div>
+		<div class="form-style-agile">
+			<label>
+				<i class="fas fa-unlock-alt"></i>
+				密码
+			</label>
+			<input placeholder="Password" name="password" type="password" required="" />
+		</div>
+		<!-- checkbox -->
+		<div class="wthree-text">
+			<ul>
+				<li>
+					<label class="anim">
+						<input type="checkbox" class="checkbox" required="" />
+						<span>保持登录</span>
+					</label>
+				</li>
+				<li>
+					<a href="#">忘记密码?</a>
+				</li>
+			</ul>
+		</div>
+		<!-- //checkbox -->
+		<input type="submit" value="登录" />
+	</form>
+    <a href="faker">生成</a>
+</div>
+<!-- //content -->
+
+
+<!-- Jquery -->
+<script src="static/js/jquery-3.3.1.min.js"></script>
+<!-- //Jquery -->
+
+<!-- effect js -->
+<script src="static/js/canva_moving_effect.js"></script>
+<!-- //effect js -->
+
 </body>
+
 </html>
