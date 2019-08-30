@@ -41,6 +41,12 @@ public class PurchaseServiceImpl implements PurchaseService{
 	public int insert(TVShipmain shipmain){
 		return datamapper.insert(shipmain);
 	}
+
+	public int more(List<TVShipmain> list){
+		System.out.println("Service");
+		return datamapper.more(list);
+	}
+
     public List<Map<String, Object>> select(){
         return datamapper.select();
     }

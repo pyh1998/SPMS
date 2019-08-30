@@ -575,5 +575,55 @@ public class TVShipmain{
         this.fcabinnumnumno = fcabinnumnumno;
     }
 
-
+    @Override
+    public String toString() {
+        return "TVShipmain{" +
+                "company='" + company + '\'' +
+                ", fshipyearnumvcr='" + fshipyearnumvcr + '\'' +
+                ", fshipordernum=" + fshipordernum +
+                ", farrivetimedtm=" + farrivetimedtm +
+                ", fshipcodenum=" + fshipcodenum +
+                ", fshipname='" + fshipname + '\'' +
+                ", fberthnum=" + fberthnum +
+                ", fberthname='" + fberthname + '\'' +
+                ", fsigntonnum2=" + fsigntonnum2 +
+                ", fsigntonnum=" + fsigntonnum +
+                ", fshipstatevcr='" + fshipstatevcr + '\'' +
+                ", fcounttimedtm=" + fcounttimedtm +
+                ", fcabinnumnum=" + fcabinnumnum +
+                ", fmaxweighnum=" + fmaxweighnum +
+                ", frton1num=" + frton1num +
+                ", fbqton1num=" + fbqton1num +
+                ", frton2num=" + frton2num +
+                ", fbqbton2num=" + fbqbton2num +
+                ", fbmtonnum=" + fbmtonnum +
+                ", fbjtonnum1=" + fbjtonnum1 +
+                ", fbjtonnum2=" + fbjtonnum2 +
+                ", lineresult='" + lineresult + '\'' +
+                ", linestate='" + linestate + '\'' +
+                ", rton=" + rton +
+                ", bmton=" + bmton +
+                ", bqton=" + bqton +
+                ", bjton=" + bjton +
+                ", maxton=" + maxton +
+                ", minton=" + minton +
+                ", rrate=" + rrate +
+                ", bmrate=" + bmrate +
+                ", bqrate=" + bqrate +
+                ", bjrate=" + bjrate +
+                ", fcoalname1='" + fcoalname1 + '\'' +
+                ", fcoalname2='" + fcoalname2 + '\'' +
+                ", signresult='" + signresult + '\'' +
+                ", signstate='" + signstate + '\'' +
+                ", signrrate=" + signrrate +
+                ", signbmrate=" + signbmrate +
+                ", signbqrate=" + signbqrate +
+                ", signbjrate=" + signbjrate +
+                ", fstarttimedtm=" + fstarttimedtm +
+                ", fstoptimedtm=" + fstoptimedtm +
+                ", fbattlename='" + fbattlename + '\'' +
+                ", fflowname='" + fflowname + '\'' +
+                ", fcabinnumnumno=" + fcabinnumnumno +
+                '}';
+    }
 }

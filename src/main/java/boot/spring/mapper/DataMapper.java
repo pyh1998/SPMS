@@ -13,6 +13,8 @@ public interface DataMapper {
 
     int insert(TVShipmain shipmain);
 
+    int more(List<TVShipmain> list);
+
     List<Map<String, Object>> select();
 
     int delete();

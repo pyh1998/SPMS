@@ -12,8 +12,9 @@ public interface PurchaseService {
 	public ProcessInstance startWorkflow(PurchaseApply apply,String userid,Map<String,Object> variables);
 	PurchaseApply getPurchase(int id);
 	void updatePurchase(PurchaseApply a);
-		public int update(TVShipmain shipmain);
-		public int insert(TVShipmain shipmain);
+		int update(TVShipmain shipmain);
+		int insert(TVShipmain shipmain);
+		int more(List<TVShipmain> list);
         List<Map<String, Object>> select();
         int delete();
 
