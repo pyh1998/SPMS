@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface DataService {
      int update(TVShipmain shipmain);
-     int more(List<TVShipmain> list);
 }

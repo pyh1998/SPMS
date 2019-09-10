@@ -509,12 +509,12 @@
 								<!-- form over -->
 							</div>
 						<div class="form-group has-feedback">
-							<label>是否修改</label> <input readonly="readonly" id="total" class="form-control" name="total" placeholder="是否修改"/>
+							<label>是否被修改：</label> <label id="modify" style="color: red">未获取到</label>
 						</div>
 						<div class="form-group">
 						                <label>审批意见</label>
 						                <div class="controls">
-											<select name="finance">
+											<select name="finance" id="finance">
 												<option value="true">同意</option>
 												<option value="false">拒绝</option>
 											</select>

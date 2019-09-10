@@ -17,7 +17,4 @@ public class DataServiceImpl {
     public int update(TVShipmain shipmain){
         return datamapper.update(shipmain);
     }
-    public int more(List<TVShipmain> list){
-        System.out.println("Service");
-        return datamapper.insert(list.get(0)); }
 }

@@ -1,19 +1,20 @@
 package boot.spring.controller;
 
 import boot.spring.po.TVShipmain;
-import boot.spring.service.DataService;
+import boot.spring.po.TVTrain;
 import boot.spring.service.PurchaseService;
+import com.alibaba.fastjson.JSON;
 import com.github.javafaker.Faker;
-import org.springframework.stereotype.Controller;
+import io.swagger.models.HttpMethod;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 
 
@@ -68,7 +69,7 @@ public class DataController {
         String FFLOWNAME = faker.book().title();
         String FCABINNUMNUMNO = faker.number().digits(1);
         tvShipmain.setCompany(COMPANY);
-        tvShipmain.setFshipyearnumvcr(FSHIPYEARNUMVCR);
+//        tvShipmain.setFshipyearnumvcr(FSHIPYEARNUMVCR);
         tvShipmain.setFshipordernum(new BigDecimal(FSHIPORDERNUM));
         tvShipmain.setFarrivetimedtm(FARRIVETIMEDTM);
         tvShipmain.setFshipcodenum(new BigDecimal(FSHIPCODENUM));
@@ -124,7 +125,7 @@ public class DataController {
 
 
     @RequestMapping(value="/update")
-    public String update(TVShipmain shipmain)
+    public String update(@RequestBody TVShipmain shipmain)
     {
         int result = purchaseService.update(shipmain);
         if (result >= 1) {
@@ -132,61 +133,10 @@ public class DataController {
         } else {
             return "修改失败";
         }
-
-
     }
 
     @RequestMapping(value="/insert")
     public String insert(@RequestBody TVShipmain tvShipMain) {
-
-//        TVShipmain tvShipmain= new TVShipmain();
-//        tvShipmain.setCompany((String) tvShipMain.get("company"));
-//        tvShipmain.setFshipyearnumvcr((String) tvShipMain.get("fshipyearnumvcr"));
-//        tvShipmain.setFshipordernum((BigDecimal) tvShipMain.get("fshipordernum"));
-//        tvShipmain.setFarrivetimedtm((Date) tvShipMain.get("farrivetimedtm"));
-//        tvShipmain.setFshipcodenum((BigDecimal) tvShipMain.get("fshipcodenum"));
-//        tvShipmain.setFshipname((String) tvShipMain.get("fshipname"));
-//        tvShipmain.setFberthnum((BigDecimal) tvShipMain.get("fberthnum"));
-//        tvShipmain.setFberthname((String) tvShipMain.get("fberthname"));
-//        tvShipmain.setFsigntonnum2((BigDecimal) tvShipMain.get("fsigntonnum2"));
-//        tvShipmain.setFsigntonnum((BigDecimal) tvShipMain.get("fsigntonnum"));
-//        tvShipmain.setFshipstatevcr((String) tvShipMain.get("fshipstatevcr"));
-//        tvShipmain.setFcounttimedtm((Date) tvShipMain.get("fcounttimedtm"));
-//        tvShipmain.setFcabinnumnum((BigDecimal) tvShipMain.get("fcabinnumnum"));
-//        tvShipmain.setFmaxweighnum((BigDecimal) tvShipMain.get("fmaxweighnum"));
-//        tvShipmain.setFrton1num((BigDecimal) tvShipMain.get("frton1num"));
-//        tvShipmain.setFbqton1num((BigDecimal) tvShipMain.get("fbqton1num"));
-//        tvShipmain.setFrton2num((BigDecimal) tvShipMain.get("frton2num"));
-//        tvShipmain.setFbqbton2num((BigDecimal) tvShipMain.get("fbqbton2num"));
-//        tvShipmain.setFbmtonnum((BigDecimal) tvShipMain.get("fbmtonnum"));
-//        tvShipmain.setFbjtonnum1((BigDecimal) tvShipMain.get("fbjtonnum1"));
-//        tvShipmain.setFbjtonnum2((BigDecimal) tvShipMain.get("fbjtonnum2"));
-//        tvShipmain.setLineresult((String) tvShipMain.get("lineresult"));
-//        tvShipmain.setLinestate((String) tvShipMain.get("linestate"));
-//        tvShipmain.setRton((BigDecimal) tvShipMain.get("rton"));
-//        tvShipmain.setBmton((BigDecimal) tvShipMain.get("bmton"));
-//        tvShipmain.setBqton((BigDecimal) tvShipMain.get("bqton"));
-//        tvShipmain.setBjton((BigDecimal) tvShipMain.get("bjton"));;
-//        tvShipmain.setMaxton((BigDecimal) tvShipMain.get("maxton"));
-//        tvShipmain.setMinton((BigDecimal) tvShipMain.get("minton"));
-//        tvShipmain.setRrate((BigDecimal) tvShipMain.get("rrate"));
-//        tvShipmain.setBmrate((BigDecimal) tvShipMain.get("bmrate"));
-//        tvShipmain.setBqrate((BigDecimal) tvShipMain.get("bqrate"));
-//        tvShipmain.setBjrate((BigDecimal) tvShipMain.get("bjrate"));
-//        tvShipmain.setFcoalname1((String) tvShipMain.get("fcoalname1"));
-//        tvShipmain.setFcoalname2((String) tvShipMain.get("fcoalname2"));
-//        tvShipmain.setSignresult((String) tvShipMain.get("signresult"));
-//        tvShipmain.setSignstate((String) tvShipMain.get("signstate"));
-//        tvShipmain.setSignrrate((BigDecimal) tvShipMain.get("signrrate"));
-//        tvShipmain.setSignbmrate((BigDecimal) tvShipMain.get("signbmrate"));
-//        tvShipmain.setSignbqrate((BigDecimal) tvShipMain.get("signbqrate"));
-//        tvShipmain.setSignbjrate((BigDecimal) tvShipMain.get("signbjrate"));
-//        tvShipmain.setFstarttimedtm((Date) tvShipMain.get("fstarttimedtm"));
-//        tvShipmain.setFstoptimedtm((Date) tvShipMain.get("fstoptimedtm"));
-//        tvShipmain.setFbattlename((String) tvShipMain.get("fbattlename"));
-//        tvShipmain.setFflowname((String) tvShipMain.get("fflowname"));
-//        tvShipmain.setFcabinnumnumno((BigDecimal) tvShipMain.get("fcabinnumnumno"));
-
         int result = purchaseService.insert(tvShipMain);//函数调用问题
         if (result >= 1) {
             return "添加成功";
@@ -195,26 +145,31 @@ public class DataController {
         }
     }
 
-    @RequestMapping(value = "/more")
-    public int more(@RequestBody List<TVShipmain> list){
-        System.out.println(list.size());
-//        for(int i=0 ; i < list.size() ; i++)
-//            purchaseService.insert(list.get(i));
-        return purchaseService.more(list);
+    @RequestMapping(value = "/moreShip")
+    public int moreShip(@RequestBody List<TVShipmain> list){return purchaseService.moreShip(list);
+    }
+
+    @RequestMapping(value = "/moreTrain")
+    public int moreTrain(@RequestBody List<TVTrain> list){return purchaseService.moreTrain(list);
     }
 
     @RequestMapping(value = "/select")
     public  Object select(){
-
-        System.out.println("bbb");
-
-        List<Map<String, Object>> select =this.purchaseService.select();
-        return select;
-
+        List<TVShipmain> select =this.purchaseService.select();
+//        this.purchaseService.setFlag();
+        String json = JSON.toJSONString(select);
+        return json;
     }
     @RequestMapping(value = "/delete")
     public  int delete(){
         return this.purchaseService.delete();
     }
 
+    @RequestMapping(value = "/transShip")
+    public void transShip() {
+        String selectURL = "http://localhost:8080/trans/transShip";
+        HttpMethod method = HttpMethod.POST;
+        this.purchaseService.client(selectURL, method);
+
+    }
 }

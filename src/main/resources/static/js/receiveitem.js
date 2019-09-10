@@ -14,7 +14,7 @@
 		    },
 		    "commands": function(column, row)
 		    {
-		            return "<button class=\"btn btn-xs btn-default ajax-link command-run1\" data-itemlist="+row.itemlist+" data-total="+row.total+" data-row-id=\"" + row.taskid + "\">处理</button>";
+				return '<button class="btn btn-xs btn-default ajax-link command-run1" data-itemlist="'+row.itemlist+'" data-total="'+row.total+'" data-row-id="'+ row.taskid + '">处理</button>';
 		    }
 	    	}
 	    
@@ -25,16 +25,36 @@
 	    	    	var taskid=$(this).data("row-id");
 	    	    	var total=$(this).data("total");
 	    	    	var itemlist=$(this).data("itemlist");
-	    	    	var taskid=$(this).data("row-id");
-	    	    	$("#total").val(total);
+					if(total == 0){
+						$("#modify").html("否");
+					}
+					else if(total == 1)
+						$("#modify").html("是");
 	    	    	$("#itemlist").val(itemlist);
 	    	    	$("#dept").show();
 	    	    	$("#btn").click(function(){
-	    		    	$.post("task/receivecomplete/"+taskid,$("form").serialize(),function(a){
-	    		    		alert("处理成功");
-	    		    		LoadAjaxContent("receiveitem");
-	    		    	});
-	    	    	
+	    		    	// $.post("task/receivecomplete/"+taskid,$("form").serialize(),function(a){
+	    		    	// 	alert("处理成功");
+	    		    	// 	LoadAjaxContent("receiveitem");
+	    		    	// });
+						$.ajax({
+							type:"POST",
+							url:"task/receivecomplete/"+taskid,
+							success: function(){
+								$.ajax({
+									type:"POST",
+									url:"mail/send",
+									error:function(XMLHttpRequest, textStatus, errorThrown){
+										alert("邮件："+XMLHttpRequest.status);
+									}
+								});
+								alert("已确认并推送至总公司，邮件已发送到您的邮箱");
+								LoadAjaxContent("receiveitem");
+							},
+							error:function(XMLHttpRequest, textStatus, errorThrown){
+								alert("总："+XMLHttpRequest.status);
+							}
+						});
 	    	    });
 	    	    });
 	    

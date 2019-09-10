@@ -1,6 +1,7 @@
 package boot.spring.mapper;
 
 import boot.spring.po.TVShipmain;
+import boot.spring.po.TVTrain;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,11 +12,15 @@ public interface DataMapper {
 
     int update(TVShipmain shipmain);
 
+    int setFlag();
+
     int insert(TVShipmain shipmain);
 
-    int more(List<TVShipmain> list);
+    int moreShip(List<TVShipmain> list);
 
-    List<Map<String, Object>> select();
+    int moreTrain(List<TVTrain> list);
+
+    List<TVShipmain> select();
 
     int delete();
 }

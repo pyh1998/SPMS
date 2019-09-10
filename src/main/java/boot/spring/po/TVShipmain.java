@@ -1,16 +1,18 @@
 package boot.spring.po;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 import java.io.Serializable;
 
 
-public class TVShipmain{
+public class TVShipmain implements Serializable{
     /**
      * 公司
      */
-
+    private String pid;
     private String company;
     /**
      * 船舶年序号
@@ -23,6 +25,7 @@ public class TVShipmain{
     /**
      * 抵达时间
      */
+    @JSONField(format ="yyyy-MM-dd")
     private Date farrivetimedtm;
     /**
      * 船舶代码
@@ -58,7 +61,7 @@ public class TVShipmain{
     /**
      * 统计年月 月份 所属日期
      */
-
+    @JSONField(format ="yyyy-MM-dd")
     private Date fcounttimedtm;
     /**
      * 舱数
@@ -195,9 +198,9 @@ public class TVShipmain{
      */
 
     private BigDecimal signbjrate;
-
+    @JSONField(format ="yyyy-MM-dd")
     private Date fstarttimedtm;
-
+    @JSONField(format ="yyyy-MM-dd")
     private Date fstoptimedtm;
 
     private String fbattlename;
@@ -213,6 +216,14 @@ public class TVShipmain{
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
     public String getFshipyearnumvcr() {
@@ -578,7 +589,8 @@ public class TVShipmain{
     @Override
     public String toString() {
         return "TVShipmain{" +
-                "company='" + company + '\'' +
+                "pid=" + pid +
+                ", company='" + company + '\'' +
                 ", fshipyearnumvcr='" + fshipyearnumvcr + '\'' +
                 ", fshipordernum=" + fshipordernum +
                 ", farrivetimedtm=" + farrivetimedtm +

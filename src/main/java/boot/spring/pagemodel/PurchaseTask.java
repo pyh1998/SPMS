@@ -2,6 +2,7 @@ package boot.spring.pagemodel;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Map;
 
 public class PurchaseTask {
 	int bussinesskey;
@@ -13,6 +14,7 @@ public class PurchaseTask {
 	String taskname;
 	String processinstanceid;
 	String processdefid;
+	Map<String, Object> TVShipMain;
 	public int getBussinesskey() {
 		return bussinesskey;
 	}
@@ -67,5 +69,12 @@ public class PurchaseTask {
 	public void setProcessdefid(String processdefid) {
 		this.processdefid = processdefid;
 	}
-	
+
+	public Map<String, Object> getTVShipMain() {
+		return TVShipMain;
+	}
+
+	public void setTVShipMain(Map<String, Object> TVShipMain) {
+		this.TVShipMain = TVShipMain;
+	}
 }

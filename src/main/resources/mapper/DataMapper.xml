@@ -4,33 +4,41 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boot.spring.mapper.DataMapper">
 
-    <update id="update" parameterType="boot.spring.po.PurchaseApply">
-        update purchase
-        <set>
-
-                applyer = "WANG"
-
-        </set>
-        where id = 41
+    <update id="setFlag">
+        update T_V_SHIPMAIN
+        set FFLAGNUM = 1
     </update>
 
+    <update id="update" parameterType="boot.spring.po.TVShipmain">
+        update T_V_SHIPMAIN
+        set COMPANY=#{company}, FARRIVETIMEDTM=#{farrivetimedtm}, FSTARTTIMEDTM=#{fstarttimedtm}, FSTOPTIMEDTM=#{fstoptimedtm}, FCOUNTTIMEDTM=#{fcounttimedtm}, FSHIPYEARNUMVCR=#{fshipyearnumvcr}, FSHIPORDERNUM=#{fshipordernum}, FSHIPCODENUM=#{fshipcodenum}, FSHIPNAME=#{fshipname}, FBERTHNUM=#{fberthnum}, FBERTHNAME=#{fberthname}, FSIGNTONNUM2=#{fsigntonnum2}, FSIGNTONNUM=#{fsigntonnum}, FSHIPSTATEVCR=#{fshipstatevcr}, FCABINNUMNUM=#{fcabinnumnum}, FMAXWEIGHNUM=#{fmaxweighnum}, FRTON1NUM=#{frton1num}, FBQTON1NUM=#{fbqton1num}, FRTON2NUM=#{frton2num}, FBQBTON2NUM=#{fbqbton2num}, FBMTONNUM=#{fbmtonnum}, FBJTONNUM1=#{fbjtonnum1}, FBJTONNUM2=#{fbjtonnum2}, LINERESULT=#{lineresult}, LINESTATE=#{linestate}, RTON=#{rton}, BMTON=#{bmton}, BQTON=#{bqton}, BJTON=#{bjton}, MAXTON=#{maxton}, MINTON=#{minton}, RRATE=#{rrate}, BMRATE=#{bmrate}, BQRATE=#{bqrate}, BJRATE=#{bjrate}, FCOALNAME1=#{fcoalname1}, FCOALNAME2=#{fcoalname2}, SIGNRESULT=#{signresult}, SIGNSTATE=#{signstate}, SIGNRRATE=#{signrrate}, SIGNBMRATE=#{signbmrate}, SIGNBQRATE=#{signbqrate}, SIGNBJRATE=#{signbjrate}, FBATTLENAME=#{fbattlename}, FFLOWNAME=#{fflowname}, FCABINNUMNUMNO=#{fcabinnumnumno}
+        where PID = #{pid}
+    </update>
 
     <select id="select" resultType="boot.spring.po.TVShipmain" >
-      select * from T_V_SHIPMAIN
-
-
-
+      select *
+      from T_V_SHIPMAIN
+    where FFLAGNUM = 0
     </select>
     <insert id="insert" parameterType="boot.spring.po.TVShipmain">
-       insert into T_V_SHIPMAIN (COMPANY, FCOUNTTIMEDTM, FSHIPYEARNUMVCR, FSHIPORDERNUM, FSHIPCODENUM, FSHIPNAME, FBERTHNUM, FBERTHNAME, FSIGNTONNUM2, FSIGNTONNUM, FSHIPSTATEVCR, FCABINNUMNUM, FMAXWEIGHNUM, FRTON1NUM, FBQTON1NUM, FRTON2NUM, FBQBTON2NUM, FBMTONNUM, FBJTONNUM1, FBJTONNUM2, LINERESULT, LINESTATE, RTON, BMTON, BQTON, BJTON, MAXTON, MINTON, RRATE, BMRATE, BQRATE, BJRATE, FCOALNAME1, FCOALNAME2, SIGNRESULT, SIGNSTATE, SIGNRRATE, SIGNBMRATE, SIGNBQRATE, SIGNBJRATE, FBATTLENAME, FFLOWNAME, FCABINNUMNUMNO)
-values(#{company},#{fcounttimedtm},#{fshipyearnumvcr},#{fshipordernum},#{fshipcodenum},#{fshipname},#{fberthnum},#{fberthname},#{fsigntonnum2},#{fsigntonnum},#{fshipstatevcr},#{fcabinnumnum},#{fmaxweighnum},#{frton1num},#{fbqton1num},#{frton2num},#{fbqbton2num},#{fbmtonnum},#{fbjtonnum1},#{fbjtonnum2},#{lineresult},#{linestate},#{rton},#{bmton},#{bqton},#{bjton},#{maxton},#{minton},#{rrate},#{bmrate},#{bqrate},#{bjrate},#{fcoalname1},#{fcoalname2},#{signresult},#{signstate},#{signrrate},#{signbmrate},#{signbqrate},#{signbjrate},#{fbattlename},#{fflowname},#{fcabinnumnumno})
+       insert into T_V_SHIPMAIN (COMPANY, PID, FARRIVETIMEDTM, FSTARTTIMEDTM, FSTOPTIMEDTM, FCOUNTTIMEDTM, FSHIPYEARNUMVCR, FSHIPORDERNUM, FSHIPCODENUM, FSHIPNAME, FBERTHNUM, FBERTHNAME, FSIGNTONNUM2, FSIGNTONNUM, FSHIPSTATEVCR, FCABINNUMNUM, FMAXWEIGHNUM, FRTON1NUM, FBQTON1NUM, FRTON2NUM, FBQBTON2NUM, FBMTONNUM, FBJTONNUM1, FBJTONNUM2, LINERESULT, LINESTATE, RTON, BMTON, BQTON, BJTON, MAXTON, MINTON, RRATE, BMRATE, BQRATE, BJRATE, FCOALNAME1, FCOALNAME2, SIGNRESULT, SIGNSTATE, SIGNRRATE, SIGNBMRATE, SIGNBQRATE, SIGNBJRATE, FBATTLENAME, FFLOWNAME, FCABINNUMNUMNO)
+values(#{company},#{pid},#{farrivetimedtm},#{fstarttimedtm},#{fstoptimedtm},#{fcounttimedtm},#{fshipyearnumvcr},#{fshipordernum},#{fshipcodenum},#{fshipname},#{fberthnum},#{fberthname},#{fsigntonnum2},#{fsigntonnum},#{fshipstatevcr},#{fcabinnumnum},#{fmaxweighnum},#{frton1num},#{fbqton1num},#{frton2num},#{fbqbton2num},#{fbmtonnum},#{fbjtonnum1},#{fbjtonnum2},#{lineresult},#{linestate},#{rton},#{bmton},#{bqton},#{bjton},#{maxton},#{minton},#{rrate},#{bmrate},#{bqrate},#{bjrate},#{fcoalname1},#{fcoalname2},#{signresult},#{signstate},#{signrrate},#{signbmrate},#{signbqrate},#{signbjrate},#{fbattlename},#{fflowname},#{fcabinnumnumno})
 
     </insert>
-    <insert id="more" parameterType="boot.spring.po.TVShipmain">
-        insert into T_V_SHIPMAIN (COMPANY, FCOUNTTIMEDTM, FSHIPYEARNUMVCR, FSHIPORDERNUM, FSHIPCODENUM, FSHIPNAME, FBERTHNUM, FBERTHNAME, FSIGNTONNUM2, FSIGNTONNUM, FSHIPSTATEVCR, FCABINNUMNUM, FMAXWEIGHNUM, FRTON1NUM, FBQTON1NUM, FRTON2NUM, FBQBTON2NUM, FBMTONNUM, FBJTONNUM1, FBJTONNUM2, LINERESULT, LINESTATE, RTON, BMTON, BQTON, BJTON, MAXTON, MINTON, RRATE, BMRATE, BQRATE, BJRATE, FCOALNAME1, FCOALNAME2, SIGNRESULT, SIGNSTATE, SIGNRRATE, SIGNBMRATE, SIGNBQRATE, SIGNBJRATE, FBATTLENAME, FFLOWNAME, FCABINNUMNUMNO)
+
+    <insert id="moreShip" parameterType="boot.spring.po.TVShipmain">
+        insert into T_V_SHIPMAIN (COMPANY, FARRIVETIMEDTM, FSTARTTIMEDTM, FSTOPTIMEDTM, FCOUNTTIMEDTM, FSHIPYEARNUMVCR, FSHIPORDERNUM, FSHIPCODENUM, FSHIPNAME, FBERTHNUM, FBERTHNAME, FSIGNTONNUM2, FSIGNTONNUM, FSHIPSTATEVCR, FCABINNUMNUM, FMAXWEIGHNUM, FRTON1NUM, FBQTON1NUM, FRTON2NUM, FBQBTON2NUM, FBMTONNUM, FBJTONNUM1, FBJTONNUM2, LINERESULT, LINESTATE, RTON, BMTON, BQTON, BJTON, MAXTON, MINTON, RRATE, BMRATE, BQRATE, BJRATE, FCOALNAME1, FCOALNAME2, SIGNRESULT, SIGNSTATE, SIGNRRATE, SIGNBMRATE, SIGNBQRATE, SIGNBJRATE, FBATTLENAME, FFLOWNAME, FCABINNUMNUMNO)
         values
         <foreach collection="list" item="TVShipmain" index="index" separator=",">
-            (#{TVShipmain.company},#{TVShipmain.fcounttimedtm},#{TVShipmain.fshipyearnumvcr},#{TVShipmain.fshipordernum},#{TVShipmain.fshipcodenum},#{TVShipmain.fshipname},#{TVShipmain.fberthnum},#{TVShipmain.fberthname},#{TVShipmain.fsigntonnum2},#{TVShipmain.fsigntonnum},#{TVShipmain.fshipstatevcr},#{TVShipmain.fcabinnumnum},#{TVShipmain.fmaxweighnum},#{TVShipmain.frton1num},#{TVShipmain.fbqton1num},#{TVShipmain.frton2num},#{TVShipmain.fbqbton2num},#{TVShipmain.fbmtonnum},#{TVShipmain.fbjtonnum1},#{TVShipmain.fbjtonnum2},#{TVShipmain.lineresult},#{TVShipmain.linestate},#{TVShipmain.rton},#{TVShipmain.bmton},#{TVShipmain.bqton},#{TVShipmain.bjton},#{TVShipmain.maxton},#{TVShipmain.minton},#{TVShipmain.rrate},#{TVShipmain.bmrate},#{TVShipmain.bqrate},#{TVShipmain.bjrate},#{TVShipmain.fcoalname1},#{TVShipmain.fcoalname2},#{TVShipmain.signresult},#{TVShipmain.signstate},#{TVShipmain.signrrate},#{TVShipmain.signbmrate},#{TVShipmain.signbqrate},#{TVShipmain.signbjrate},#{TVShipmain.fbattlename},#{TVShipmain.fflowname},#{TVShipmain.fcabinnumnumno})
+            (#{TVShipmain.company},#{TVShipmain.farrivetimedtm},#{TVShipmain.fstarttimedtm},#{TVShipmain.fstoptimedtm},#{TVShipmain.fcounttimedtm},#{TVShipmain.fshipyearnumvcr},#{TVShipmain.fshipordernum},#{TVShipmain.fshipcodenum},#{TVShipmain.fshipname},#{TVShipmain.fberthnum},#{TVShipmain.fberthname},#{TVShipmain.fsigntonnum2},#{TVShipmain.fsigntonnum},#{TVShipmain.fshipstatevcr},#{TVShipmain.fcabinnumnum},#{TVShipmain.fmaxweighnum},#{TVShipmain.frton1num},#{TVShipmain.fbqton1num},#{TVShipmain.frton2num},#{TVShipmain.fbqbton2num},#{TVShipmain.fbmtonnum},#{TVShipmain.fbjtonnum1},#{TVShipmain.fbjtonnum2},#{TVShipmain.lineresult},#{TVShipmain.linestate},#{TVShipmain.rton},#{TVShipmain.bmton},#{TVShipmain.bqton},#{TVShipmain.bjton},#{TVShipmain.maxton},#{TVShipmain.minton},#{TVShipmain.rrate},#{TVShipmain.bmrate},#{TVShipmain.bqrate},#{TVShipmain.bjrate},#{TVShipmain.fcoalname1},#{TVShipmain.fcoalname2},#{TVShipmain.signresult},#{TVShipmain.signstate},#{TVShipmain.signrrate},#{TVShipmain.signbmrate},#{TVShipmain.signbqrate},#{TVShipmain.signbjrate},#{TVShipmain.fbattlename},#{TVShipmain.fflowname},#{TVShipmain.fcabinnumnumno})
+        </foreach>
+    </insert>
+
+    <insert id="moreTrain" parameterType="boot.spring.po.TVTrain">
+        insert into T_V_TRAIN (COMPANY,FTRAINCODEVCR,FTRAINORDERVCR,FARRIVEPORTTIMEDTM,FTRAINNUMNUM,FUNLOADFLAGNUM,FISWEIGHTNUM,FWEIGHTDTM,FWEIGHTFLAG,FBELONGDATETIMEDTM,ISVALID,FTRAINORDERNUM,FTRAINNONUM,FSTATSTASTIONCODENUM,FSTATSTASTIONNAME,FCOALCODEVCR,FCOALNAME,FCONSIGNERNUM,FCONSIGNERNAME,FCHECKTONNUM,FWEIGHTTONNUM,FISWEIGHTNUMD,FDISBUTTCODEVCR,FDISBUTTNAME,FHEAVYTONNUM,FEMPTYTONNUM,FEMPTYTIMEDTM,TICKET_NO,FTRAINNONUM2,FVOLUME,TRAINCOUNT)
+        values
+        <foreach collection="list" item="TVTrain" index="index" separator=",">
+            (#{TVTrain.company},#{TVTrain.ftraincodevcr},#{TVTrain.ftrainordervcr},#{TVTrain.farriveporttimedtm},#{TVTrain.ftrainnumnum},#{TVTrain.funloadflagnum},#{TVTrain.fisweightnum},#{TVTrain.fweightdtm},#{TVTrain.fweightflag},#{TVTrain.fbelongdatetimedtm},#{TVTrain.isvalid},#{TVTrain.ftrainordernum},#{TVTrain.ftrainnonum},#{TVTrain.fstatstastioncodenum},#{TVTrain.fstatstastionname},#{TVTrain.fcoalcodevcr},#{TVTrain.fcoalname},#{TVTrain.fconsignernum},#{TVTrain.fconsignername},#{TVTrain.fchecktonnum},#{TVTrain.fweighttonnum},#{TVTrain.fisweightnumd},#{TVTrain.fdisbuttcodevcr},#{TVTrain.fdisbuttname},#{TVTrain.fheavytonnum},#{TVTrain.femptytonnum},#{TVTrain.femptytimedtm},#{TVTrain.ticketNo},#{TVTrain.ftrainnonum2},#{TVTrain.fvolume},#{TVTrain.traincount})
         </foreach>
     </insert>
 

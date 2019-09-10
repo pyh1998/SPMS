@@ -12,6 +12,7 @@ public class PurchaseApply {
 	Date applytime;
 	String applyer;
 	Task task;
+	String pid;
 	public int getId() {
 		return id;
 	}
@@ -49,5 +50,25 @@ public class PurchaseApply {
 	public void setTask(Task task) {
 		this.task = task;
 	}
-	
+
+	public String getPid() {
+		return pid;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+
+	@Override
+	public String toString() {
+		return "PurchaseApply{" +
+				"id=" + id +
+				", itemlist='" + itemlist + '\'' +
+				", total=" + total +
+				", applytime=" + applytime +
+				", applyer='" + applyer + '\'' +
+				", task=" + task +
+				", pid=" + pid +
+				'}';
+	}
 }

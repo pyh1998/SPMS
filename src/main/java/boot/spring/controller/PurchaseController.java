@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import boot.spring.po.*;
@@ -17,11 +19,16 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.history.HistoricProcessInstance;
 import org.activiti.engine.history.HistoricProcessInstanceQuery;
+import org.activiti.engine.impl.TaskServiceImpl;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.runtime.ProcessInstanceQuery;
+import org.activiti.engine.task.Attachment;
+import org.activiti.engine.task.Comment;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.task.TaskQuery;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,29 +55,17 @@ public class PurchaseController {
 	@Autowired
 	RuntimeService runservice;
 	@Autowired
-	TaskService taskservice;
+	TaskServiceImpl taskservice;
 	@Autowired
 	HistoryService histiryservice;
 	@Autowired
 	SystemService systemservice;
 	@Autowired
 	PurchaseService purchaseservice;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	@Autowired
+	DataController dataController;
+	@Autowired
+	MailController mailController;
 
 
 	@RequestMapping(value="/purchase",method=RequestMethod.GET)
@@ -115,13 +110,14 @@ public class PurchaseController {
 	
 	@RequestMapping(value="startpurchase",method=RequestMethod.POST)
 	@ResponseBody
-	MSG startpurchase(@RequestParam("itemlist")String itemlist,HttpSession session){
+	MSG startpurchase(@RequestParam("itemlist")String itemlist,@RequestParam("pid")String pid,HttpSession session){
 		String userid=(String) session.getAttribute("username");
 		Map<String,Object> variables=new HashMap<String, Object>();
 		variables.put("starter", userid);
 		PurchaseApply purchase=new PurchaseApply();
 		purchase.setApplyer(userid);
 		purchase.setItemlist(itemlist);
+		purchase.setPid(pid);
 		purchase.setTotal(new BigDecimal(0));
 		purchase.setApplytime(new Date());
 		ProcessInstance ins=purchaseservice.startWorkflow(purchase, userid, variables);
@@ -215,6 +211,8 @@ public class PurchaseController {
 				vo.setTaskid(task.getId());
 				vo.setTaskname(task.getName());
 				vo.setTotal(a.getTotal());
+				Map<String, Object> tvShipMain = purchaseservice.detail(a.getPid());
+				vo.setTVShipMain(tvShipMain);
 				results.add(vo);
 			}
 			grid.setRowCount(rowCount);
@@ -230,7 +228,7 @@ public class PurchaseController {
 	public MSG purchasemanagercomplete(HttpSession session,@PathVariable("taskid") String taskid,HttpServletRequest req){
 		String purchaseauditi=req.getParameter("purchaseauditi");
 		String userid=(String) session.getAttribute("username");
-		Map<String,Object> variables=new HashMap<String,Object>();
+		Map<String,Object> variables=new HashMap<>();
 		variables.put("purchaseauditi", purchaseauditi);
 		taskservice.claim(taskid, userid);
 		taskservice.complete(taskid, variables);
@@ -261,6 +259,8 @@ public class PurchaseController {
 			vo.setTaskid(task.getId());
 			vo.setTaskname(task.getName());
 			vo.setTotal(a.getTotal());
+			Map<String, Object> tvShipMain = purchaseservice.detail(a.getPid());
+			vo.setTVShipMain(tvShipMain);
 			plist.add(vo);
 		}
 		DataGrid<PurchaseTask> grid=new DataGrid<PurchaseTask>();
@@ -273,7 +273,7 @@ public class PurchaseController {
 	
 	@RequestMapping(value="task/updateapplycomplete/{taskid}",method=RequestMethod.POST)
 	@ResponseBody
-	public MSG updateapplycomplete(HttpSession session,@PathVariable("taskid") String taskid,HttpServletRequest req){
+	public MSG updateapplycomplete(HttpSession session,@PathVariable("taskid") String taskid, HttpServletRequest req){
 		String updateapply=req.getParameter("updateapply");
 		String userid=(String) session.getAttribute("username");
 		if(updateapply.equals("true")){
@@ -363,6 +363,8 @@ public class PurchaseController {
 				vo.setTaskid(task.getId());
 				vo.setTaskname(task.getName());
 				vo.setTotal(a.getTotal());
+				Map<String, Object> tvShipMain = purchaseservice.detail(a.getPid());
+				vo.setTVShipMain(tvShipMain);
 				results.add(vo);
 			}
 			grid.setRowCount(rowCount);
@@ -382,6 +384,7 @@ public class PurchaseController {
 		variables.put("finance", finance);
 		if(finance.equals("true"))
 			variables.put("money", total);
+		System.out.println(finance);
 		taskservice.claim(taskid, userid);
 		taskservice.complete(taskid, variables);
 		return new MSG("ok");
@@ -430,6 +433,8 @@ public class PurchaseController {
 				vo.setTaskid(task.getId());
 				vo.setTaskname(task.getName());
 				vo.setTotal(a.getTotal());
+				Map<String, Object> tvShipMain = purchaseservice.detail(a.getPid());
+				vo.setTVShipMain(tvShipMain);
 				results.add(vo);
 			}
 			grid.setRowCount(rowCount);
@@ -555,7 +560,9 @@ public class PurchaseController {
 		String userid=(String) session.getAttribute("username");
 		taskservice.claim(taskid, userid);
 		taskservice.complete(taskid);
+		dataController.transShip();
 		return new MSG("ok");
+
 	}
 
 
