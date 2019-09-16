@@ -21,7 +21,7 @@ public class MailController extends HttpServlet{
     @RequestMapping(value="/send")
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("进入servlet成功");
-        email = "287021680@qq.com";
+        email = "976754000@qq.com";
         System.out.println(email);
 //		resp.setCharacterEncoding("UTF-8");
 //		resp.setContentType("application/json; charset=utf-8");
@@ -53,8 +53,8 @@ public class MailController extends HttpServlet{
             mail.addTo(email);//接收的邮箱
 
             System.out.println("email=  "+email);
-            mail.setSubject("孙子");//设置邮件的主题
-            mail.setMsg("爷爷给你发个邮件。其实爷爷是在测试邮件提醒");//设置邮件的内容
+            mail.setSubject("邮件提醒");//设置邮件的主题
+            mail.setMsg("数据上传成功！！！");//设置邮件的内容
             mail.send();//发送
             return 0;
         } catch (EmailException e) {

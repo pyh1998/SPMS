@@ -156,7 +156,7 @@ public class DataController {
     @RequestMapping(value = "/select")
     public  Object select(){
         List<TVShipmain> select =this.purchaseService.select();
-//        this.purchaseService.setFlag();
+       this.purchaseService.setFlag();
         String json = JSON.toJSONString(select);
         return json;
     }

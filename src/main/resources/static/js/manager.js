@@ -13,6 +13,7 @@
 		    "commands": function(column, row)
 		    {
 				tvshipmain=row.tvshipMain;
+
 				return '<button class="btn btn-xs btn-default ajax-link command-run1" data-itemlist="'+row.itemlist+'" data-total="'+row.total+'" data-row-id="'+ row.taskid + '">处理</button>';		    }
 	    	}
 	    
